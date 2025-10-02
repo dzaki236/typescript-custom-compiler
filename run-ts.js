@@ -7,7 +7,7 @@ var fs = require("fs");
 // Get the TS file from CLI args
 var tsFile = process.argv[2];
 if (!tsFile) {
-    console.error("❌ Usage: npm run ts <src/file.ts>");
+    console.error("❌ Usage: npm run ts <src/file.ts> [options]");
     process.exit(1);
 }
 // Ensure it exists
@@ -25,3 +25,4 @@ var jsFile = path.join("dist", relPath).replace(/\.ts$/, ".js");
 // 3. Run the compiled JS
 console.log("\uD83D\uDE80 Running ".concat(jsFile, "...\n"));
 (0, child_process_1.execSync)("node \"".concat(jsFile, "\""), { stdio: "inherit" });
+console.log("\n✅ Done.");

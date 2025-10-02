@@ -7,7 +7,7 @@ import * as fs from "fs";
 const tsFile: string | undefined = process.argv[2];
 
 if (!tsFile) {
-    console.error("❌ Usage: npm run ts <src/file.ts>");
+    console.error("❌ Usage: npm run ts <src/file.ts> [options]");
     process.exit(1);
 }
 
@@ -29,3 +29,5 @@ const jsFile: string = path.join("dist", relPath).replace(/\.ts$/, ".js");
 // 3. Run the compiled JS
 console.log(`🚀 Running ${jsFile}...\n`);
 execSync(`node "${jsFile}"`, { stdio: "inherit" });
+
+console.log("\n✅ Done.");
